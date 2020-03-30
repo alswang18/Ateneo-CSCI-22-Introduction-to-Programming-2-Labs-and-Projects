@@ -6,9 +6,9 @@ public class SceneFrame {
     private JFrame frame;
     private SceneCanvas canvas;
     private JButton closeButton;
-    private JButton lightningButton;
     private JPanel panel;
     private Boolean isOpen;
+    private int speed;
 
     public SceneFrame() {
         frame = new JFrame();
@@ -16,7 +16,7 @@ public class SceneFrame {
         closeButton = new JButton("Close");
         panel = new JPanel();
         isOpen = true;
-
+        speed = 65;
     }
 
     public void setUpGUI() {
@@ -41,85 +41,90 @@ public class SceneFrame {
                 e.printStackTrace();
             }
         }
-        for (int i = 0; i < 4000; i++) {
-            canvas.getDrawings().get(canvas.getDrawings().size() - 3).adjustX(-5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 4).adjustX(-5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 5).adjustX(-5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 6).adjustX(-5);
-            canvas.repaint();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            canvas.getDrawings().get(canvas.getDrawings().size() - 3).adjustX(5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 4).adjustX(5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 5).adjustX(5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 6).adjustX(5);
-            canvas.repaint();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            canvas.getDrawings().get(canvas.getDrawings().size() - 3).adjustX(5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 4).adjustX(5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 5).adjustX(5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 6).adjustX(5);
-            canvas.repaint();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            canvas.getDrawings().get(canvas.getDrawings().size() - 3).adjustX(-5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 4).adjustX(-5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 5).adjustX(-5);
-            canvas.getDrawings().get(canvas.getDrawings().size() - 6).adjustX(-5);
-            canvas.repaint();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        while (true) {
+            for (int i = 5; i < 11; i++) {
+                NinjaStar temp = (NinjaStar) canvas.getDrawings().get(i);
+                temp.adjustRotation(speed);
+                canvas.repaint();
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException f) {
+                    f.printStackTrace();
+                }
             }
         }
 
     }
 
+    class al implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Object o = e.getSource();
+            if (o == closeButton && isOpen == true) {
+                canvas.getDrawings().get(canvas.getDrawings().size() - 2).adjustX(400);
+                canvas.getDrawings().get(canvas.getDrawings().size() - 1).adjustX(-400);
+                canvas.repaint();
+                closeButton.setText("Open");
+                isOpen = false;
+            } else if (o == closeButton && isOpen == false) {
+                canvas.getDrawings().get(canvas.getDrawings().size() - 2).adjustX(-400);
+                canvas.getDrawings().get(canvas.getDrawings().size() - 1).adjustX(400);
+                canvas.repaint();
+                closeButton.setText("Close");
+                isOpen = true;
+            }
+        }
+    }
+
     public void setUpButtonListener() {
-        ActionListener bl = new ActionListener() {
+        al actionListener = new al();
+        closeButton.addActionListener(actionListener);
+
+        closeButton.addKeyListener(new KeyListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                Object o = e.getSource();
-                if (o == closeButton && isOpen == true) {
-                    closeButton.setText("Open");
-                    for (int i = 0; i < 40; i++) {
-                        canvas.getDrawings().get(canvas.getDrawings().size() - 2).adjustX(10);
-                        canvas.getDrawings().get(canvas.getDrawings().size() - 1).adjustX(-10);
+            public void keyPressed(KeyEvent e) {
+                int keyCode = e.getKeyCode();
+                Triangle triangleObject = (Triangle) canvas.getDrawings().get(4);
+                if (keyCode == KeyEvent.VK_RIGHT && triangleObject.getRotation() != -45) {
+                    triangleObject.adjustRotation(-45);
+                    canvas.repaint();
+                    if (triangleObject.getRotation() > -45 && triangleObject.getRotation() < 45) {
+                        Circle temp = (Circle) canvas.getDrawings().get(3);
+                        temp.setColor(Color.WHITE);
                         canvas.repaint();
-                        try {
-                            Thread.sleep(30);
-                        } catch (InterruptedException e1) {
-                            e1.printStackTrace();
+                        for (int i = 5; i < 11; i++) {
+                            NinjaStar temp1 = (NinjaStar) canvas.getDrawings().get(i);
+                            temp1.setColor(Color.GRAY);
+                            canvas.repaint();
                         }
                     }
-                    isOpen = false;
-                } else if (o == closeButton && isOpen == false) {
-                    for (int i = 0; i < 40; i++) {
-                        closeButton.setText("Close");
-                        canvas.getDrawings().get(canvas.getDrawings().size() - 2).adjustX(-10);
-                        canvas.getDrawings().get(canvas.getDrawings().size() - 1).adjustX(10);
+                }
+
+                else if (keyCode == KeyEvent.VK_LEFT && triangleObject.getRotation() != 45) {
+                    triangleObject.adjustRotation(45);
+                    canvas.repaint();
+                    if (triangleObject.getRotation() > 0) {
+                        Circle temp = (Circle) canvas.getDrawings().get(3);
+                        temp.setColor(Color.RED);
                         canvas.repaint();
-                        try {
-                            Thread.sleep(30);
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
+                        for (int i = 5; i < 11; i++) {
+                            NinjaStar temp1 = (NinjaStar) canvas.getDrawings().get(i);
+                            temp1.setColor(Color.WHITE);
+                            canvas.repaint();
                         }
                     }
-                    isOpen = true;
                 }
             }
-        };
-        closeButton.addActionListener(bl);
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
     }
 }

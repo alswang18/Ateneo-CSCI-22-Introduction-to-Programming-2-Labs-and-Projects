@@ -4,12 +4,14 @@ import java.awt.geom.*;
 public class Triangle implements DrawingObject {
     private double X;
     private double Y;
+    private int degrees;
     private Color color;
 
     public Triangle(double x, double y, Color color) {
         this.X = x;
         this.Y = y;
         this.color = color;
+        degrees = 45;
 
     }
 
@@ -17,13 +19,13 @@ public class Triangle implements DrawingObject {
     public void draw(Graphics2D g2d) {
         g2d.setColor(color);
         Path2D p = new Path2D.Double();
-        g2d.rotate(Math.toRadians(30));
-        p.moveTo(815, 710);
-        p.lineTo(835, 710);
-        p.lineTo(825, 680);
-        p.lineTo(815, 710);
+        g2d.rotate(Math.toRadians(-degrees), 825 + X, 695 + Y);
+        p.moveTo(815 + X, 710 + Y);
+        p.lineTo(835 + X, 710 + Y);
+        p.lineTo(825 + X, 680 + Y);
+        p.lineTo(815 + X, 710 + Y);
         g2d.fill(p);
-        g2d.rotate(Math.toRadians(-30));
+        g2d.rotate(Math.toRadians(degrees), 825 + X, 695 + Y);
 
     }
 
@@ -37,11 +39,11 @@ public class Triangle implements DrawingObject {
         return X;
     }
 
-    public void adjustY(double distance) {
-        Y += distance;
+    public void adjustRotation(int d) {
+        degrees += d;
     }
 
-    public double getY() {
-        return Y;
+    public int getRotation() {
+        return degrees;
     }
 }

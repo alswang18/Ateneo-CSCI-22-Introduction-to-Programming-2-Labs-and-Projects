@@ -38,4 +38,8 @@ public class Circle implements DrawingObject {
     public double getY() {
         return Y;
     }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
 }
