@@ -21,7 +21,8 @@ public class Sharingan implements DrawingObject {
         g2d.setStroke(new BasicStroke(5));
         g2d.draw(new Ellipse2D.Double(400, 270, 230, 230));
         g2d.rotate(Math.toRadians(degrees), 512, 384);
-        g2d.fill(new Ellipse2D.Double(X, Y, 30, 30));
+        Circle c1 = new Circle(X, Y, 30, color);
+        c1.draw(g2d);
         Path2D p = new Path2D.Double();
         p.moveTo(629, 392);
         p.lineTo(599, 422);
@@ -30,7 +31,8 @@ public class Sharingan implements DrawingObject {
         g2d.fill(p);
         g2d.rotate(Math.toRadians(-degrees), 512, 384);
         g2d.rotate(Math.toRadians(degrees + 120), 512, 384);
-        g2d.fill(new Ellipse2D.Double(X, Y, 30, 30));
+        Circle c2 = new Circle(X, Y, 30, color);
+        c2.draw(g2d);
         Path2D p1 = new Path2D.Double();
         p1.moveTo(629, 392);
         p1.lineTo(599, 422);
@@ -39,7 +41,8 @@ public class Sharingan implements DrawingObject {
         g2d.fill(p1);
         g2d.rotate(Math.toRadians(-degrees + -120), 512, 384);
         g2d.rotate(Math.toRadians(degrees + 240), 512, 384);
-        g2d.fill(new Ellipse2D.Double(X, Y, 30, 30));
+        Circle c3 = new Circle(X, Y, 30, color);
+        c3.draw(g2d);
         Path2D p2 = new Path2D.Double();
         p2.moveTo(629, 392);
         p2.lineTo(599, 422);

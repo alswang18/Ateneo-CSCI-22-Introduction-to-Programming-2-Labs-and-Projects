@@ -30,11 +30,9 @@ public class SceneCanvas extends JComponent {
         drawings.add(new Line(180, 650, 380, 650, 1, Color.LIGHT_GRAY));
         drawings.add(new Line(200, 700, 360, 700, 1, Color.LIGHT_GRAY));
         drawings.add(new Line(160, 750, 400, 750, 1, Color.LIGHT_GRAY));
-        drawings.add(new Circle(790, 664, 20, Color.BLUE));
-        drawings.add(new Circle(815, 644, 20, Color.BLUE));
-        drawings.add(new Circle(840, 664, 20, Color.BLUE));
-        drawings.add(new Square(487, 630, 50, Color.GREEN));
-        drawings.add(new Square(487, 690, 50, Color.GREEN));
+        drawings.add(new Circle(790, 664, 20, Color.LIGHT_GRAY));
+        drawings.add(new Circle(815, 644, 20, Color.LIGHT_GRAY));
+        drawings.add(new Circle(840, 664, 20, Color.LIGHT_GRAY));
         drawings.add(new Ri(0, 0, Color.WHITE));
         drawings.add(new Ben(0, 0, Color.WHITE));
         drawings.add(new LeftCurtain(0));

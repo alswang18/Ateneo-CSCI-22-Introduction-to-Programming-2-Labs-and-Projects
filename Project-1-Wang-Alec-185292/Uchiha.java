@@ -18,14 +18,16 @@ public class Uchiha implements DrawingObject {
     @Override
     public void draw(Graphics2D g2d) {
         g2d.setColor(Color.WHITE);
-        g2d.fill(new Ellipse2D.Double(512 - 50 + X, 35 + Y, 100, 100));
-        g2d.setColor(color);
-        g2d.fill(new Ellipse2D.Double(512 - 50 + X, 35 + Y, 100, 100));
-        g2d.setColor(new Color(135, 206, 235));
-        g2d.fill(new Ellipse2D.Double(512 - 50 + X, 80 + Y, 100, 70));
-        g2d.setColor(Color.WHITE);
-        g2d.fill(new Ellipse2D.Double(512 - 42.5 + X, 83 + Y, 85, 48));
-        g2d.fill(new Rectangle2D.Double(497 + X, 95 + Y, 30, 50));
+        Circle c1 = new Circle(512 - 50 + X, 35 + Y, 100, Color.WHITE);
+        c1.draw(g2d);
+        Circle c2 = new Circle(512 - 50 + X, 35 + Y, 100, color);
+        c2.draw(g2d);
+        Oval o1 = new Oval(512 - 50 + X, 80 + Y, 100, 70, new Color(135, 206, 235));
+        o1.draw(g2d);
+        Oval o2 = new Oval(512 - 42.5 + X, 83 + Y, 85, 48, Color.WHITE);
+        o2.draw(g2d);
+        Rectangle r1 = new Rectangle(497 + X, 95 + Y, 30, 50, Color.WHITE);
+        r1.draw(g2d);
 
     }
 

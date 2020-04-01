@@ -14,13 +14,18 @@ public class Ri implements DrawingObject {
 
     @Override
     public void draw(Graphics2D g2d) {
-        g2d.setStroke(new BasicStroke(3));
-        g2d.setColor(color);
-        g2d.draw(new Line2D.Double(492 + X, 637 + Y, 492 + X, 672 + Y));
-        g2d.draw(new Line2D.Double(532 + X, 637 + Y, 532 + X, 672 + Y));
-        g2d.draw(new Line2D.Double(492 + X, 672 + Y, 532 + X, 672 + Y));
-        g2d.draw(new Line2D.Double(492 + X, 637 + Y, 532 + X, 637 + Y));
-        g2d.draw(new Line2D.Double(492 + X, 655 + Y, 532 + X, 655 + Y));
+        Square s1 = new Square(487, 630, 50, Color.GREEN);
+        s1.draw(g2d);
+        Line l1 = new Line(492 + X, 637 + Y, 492 + X, 672 + Y, 3, color);
+        l1.draw(g2d);
+        Line l2 = new Line(532 + X, 637 + Y, 532 + X, 672 + Y, 3, color);
+        l2.draw(g2d);
+        Line l3 = new Line(492 + X, 672 + Y, 532 + X, 672 + Y, 3, color);
+        l3.draw(g2d);
+        Line l4 = new Line(492 + X, 637 + Y, 532 + X, 637 + Y, 3, color);
+        l4.draw(g2d);
+        Line l5 = new Line(492 + X, 655 + Y, 532 + X, 655 + Y, 3, color);
+        l5.draw(g2d);
     }
 
     @Override
