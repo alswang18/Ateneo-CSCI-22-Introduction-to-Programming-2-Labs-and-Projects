@@ -35,21 +35,4 @@ public class Line implements DrawingObject {
     public double getX() {
         return xStart;
     }
-
-    public double getXEnd() {
-        return xEnd;
-    }
-
-    public void adjustY(double distance) {
-        yStart += distance;
-        yEnd += distance;
-    }
-
-    public double getY() {
-        return yStart;
-    }
-
-    public double getYEnd() {
-        return yEnd;
-    }
 }

@@ -31,12 +31,4 @@ public class Rectangle implements DrawingObject {
     public double getX() {
         return X;
     }
-
-    public void adjustY(double distance) {
-        Y += distance;
-    }
-
-    public double getY() {
-        return Y;
-    }
 }

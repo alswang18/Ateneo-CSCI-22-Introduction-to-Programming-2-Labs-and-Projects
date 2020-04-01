@@ -125,14 +125,14 @@ public class SceneFrame {
                     } else if (triangleObject.getRotation() < -1) {
                         third = true;
                         for (int i = 5; i < 11; i++) {
-                            NinjaStar temp1 = (NinjaStar) canvas.getDrawings().get(i);
-                            temp1.setColor(Color.WHITE);
+                            NinjaStar temp = (NinjaStar) canvas.getDrawings().get(i);
+                            temp.setColor(Color.WHITE);
                         }
                         sleepTime = 50;
-                        Sharingan temp2 = (Sharingan) canvas.getDrawings().get(11);
+                        Sharingan temp1 = (Sharingan) canvas.getDrawings().get(11);
+                        temp1.setColor(Color.BLACK);
+                        Circle temp2 = (Circle) canvas.getDrawings().get(3);
                         temp2.setColor(Color.BLACK);
-                        Circle temp3 = (Circle) canvas.getDrawings().get(3);
-                        temp3.setColor(Color.BLACK);
                     }
                     canvas.repaint();
                 }
@@ -150,12 +150,12 @@ public class SceneFrame {
                     } else if (triangleObject.getRotation() == 0) {
                         third = false;
                         for (int i = 5; i < 11; i++) {
-                            NinjaStar temp1 = (NinjaStar) canvas.getDrawings().get(i);
-                            temp1.setColor(Color.GRAY);
+                            NinjaStar temp = (NinjaStar) canvas.getDrawings().get(i);
+                            temp.setColor(Color.GRAY);
                         }
                         sleepTime = 10;
-                        Sharingan temp2 = (Sharingan) canvas.getDrawings().get(11);
-                        temp2.setColor(Color.WHITE);
+                        Sharingan temp1 = (Sharingan) canvas.getDrawings().get(11);
+                        temp1.setColor(Color.WHITE);
                     }
                     canvas.repaint();
                 }

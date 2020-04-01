@@ -38,12 +38,4 @@ public class Ri implements DrawingObject {
         return X;
     }
 
-    public void adjustY(double distance) {
-        Y += distance;
-    }
-
-    public double getY() {
-        return Y;
-    }
-
 }

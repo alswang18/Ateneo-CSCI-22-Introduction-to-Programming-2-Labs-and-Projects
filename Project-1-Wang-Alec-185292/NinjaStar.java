@@ -29,6 +29,8 @@ public class NinjaStar implements DrawingObject {
         p2.lineTo(835 + X, 710 + 12.5 + Y);
         p2.lineTo(825 + X, 680 + 72.5 + Y);
         p2.lineTo(815 + X, 710 + 12.5 + Y);
+        g2d.fill(p);
+        g2d.fill(p2);
         g2d.rotate(Math.toRadians(90), 825 + X, 717.5 + Y);
         Path2D p3 = new Path2D.Double();
         p3.moveTo(815 + X, 710 + 12.5 + Y);
@@ -46,8 +48,6 @@ public class NinjaStar implements DrawingObject {
         g2d.fill(p4);
         g2d.rotate(Math.toRadians(90), 825 + X, 717.5 + Y);
         g2d.fill(new Ellipse2D.Double(812.5 + X, 705 + Y, 25, 25));
-        g2d.fill(p);
-        g2d.fill(p2);
         g2d.rotate(Math.toRadians(degrees), 825 + X, 717.5 + Y);
 
     }

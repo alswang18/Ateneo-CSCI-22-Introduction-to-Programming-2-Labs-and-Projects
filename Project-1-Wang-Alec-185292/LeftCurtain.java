@@ -39,7 +39,6 @@ public class LeftCurtain implements DrawingObject {
         g2d.fill(new Rectangle2D.Double(392 + xOffset, 0, 8, 768));
         g2d.fill(new Rectangle2D.Double(432 + xOffset, 0, 8, 768));
         g2d.fill(new Rectangle2D.Double(472 + xOffset, 0, 8, 768));
-
         g2d.fill(new Rectangle2D.Double(512 + xOffset, 0, 8, 768));
     }
 

@@ -31,14 +31,6 @@ public class Circle implements DrawingObject {
         return X;
     }
 
-    public void adjustY(double distance) {
-        Y += distance;
-    }
-
-    public double getY() {
-        return Y;
-    }
-
     public void setColor(Color color) {
         this.color = color;
     }

@@ -6,5 +6,4 @@ public interface DrawingObject {
     void adjustX(double distance);
 
     double getX();
-
 }
