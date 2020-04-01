@@ -16,12 +16,20 @@ public class SceneCanvas extends JComponent {
         drawings.add(new Rectangle(0, 614, 1024, 500, new Color(80, 80, 80)));
         drawings.add(new Circle(512 - 37.5, 384 - 37.5, 75, Color.RED));
         drawings.add(new Triangle(0, 0, Color.RED));
-        drawings.add(new NinjaStar(-150, -480, Color.WHITE)); // 5
-        drawings.add(new NinjaStar(-500, -480, Color.WHITE)); // 6
-        drawings.add(new NinjaStar(-220, -320, Color.WHITE)); // 7
-        drawings.add(new NinjaStar(-400, -320, Color.WHITE)); // 8
-        drawings.add(new NinjaStar(-500, -180, Color.WHITE)); // 9
-        drawings.add(new NinjaStar(-150, -180, Color.WHITE)); // 10
+        drawings.add(new NinjaStar(-120, -480, Color.WHITE)); // 5
+        drawings.add(new NinjaStar(-530, -480, Color.WHITE)); // 6
+        drawings.add(new NinjaStar(-120, -320, Color.WHITE)); // 7
+        drawings.add(new NinjaStar(-530, -320, Color.WHITE)); // 8
+        drawings.add(new NinjaStar(-530, -180, Color.WHITE)); // 9
+        drawings.add(new NinjaStar(-120, -180, Color.WHITE)); // 10
+        drawings.add(new Sharingan(620, 370, Color.WHITE));
+        drawings.add(new Uchiha(0, 0, Color.RED));
+        drawings.add(new Uchiha(-300, 0, Color.RED));
+        drawings.add(new Uchiha(300, 0, Color.RED));
+        drawings.add(new Line(112, 600, 912, 600, 6, Color.WHITE));
+        drawings.add(new Line(180, 650, 380, 650, 1, Color.LIGHT_GRAY));
+        drawings.add(new Line(200, 700, 360, 700, 1, Color.LIGHT_GRAY));
+        drawings.add(new Line(160, 750, 400, 750, 1, Color.LIGHT_GRAY));
         drawings.add(new Circle(790, 664, 20, Color.BLUE));
         drawings.add(new Circle(815, 644, 20, Color.BLUE));
         drawings.add(new Circle(840, 664, 20, Color.BLUE));

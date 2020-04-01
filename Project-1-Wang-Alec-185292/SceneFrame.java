@@ -9,6 +9,8 @@ public class SceneFrame {
     private JPanel panel;
     private Boolean isOpen;
     private int speed;
+    private Boolean second;
+    private Boolean third;
 
     public SceneFrame() {
         frame = new JFrame();
@@ -16,7 +18,9 @@ public class SceneFrame {
         closeButton = new JButton("Close");
         panel = new JPanel();
         isOpen = true;
-        speed = 65;
+        speed = 20;
+        second = false;
+        third = false;
     }
 
     public void setUpGUI() {
@@ -44,13 +48,28 @@ public class SceneFrame {
         while (true) {
             for (int i = 5; i < 11; i++) {
                 NinjaStar temp = (NinjaStar) canvas.getDrawings().get(i);
+                Sharingan temp2 = (Sharingan) canvas.getDrawings().get(11);
                 temp.adjustRotation(speed);
-                canvas.repaint();
+                temp2.adjustRotation(speed);
+                Circle tempCircle = (Circle) canvas.getDrawings().get(3);
+                if (second && !third) {
+                    tempCircle.setColor(new Color(173, 216, 230));
+                }
                 try {
-                    Thread.sleep(10);
+                    Thread.sleep(50);
                 } catch (InterruptedException f) {
                     f.printStackTrace();
                 }
+                canvas.repaint();
+                if (second && !third) {
+                    tempCircle.setColor(Color.BLUE);
+                }
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException f) {
+                    f.printStackTrace();
+                }
+                canvas.repaint();
             }
         }
 
@@ -88,15 +107,27 @@ public class SceneFrame {
                 if (keyCode == KeyEvent.VK_RIGHT && triangleObject.getRotation() != -45) {
                     triangleObject.adjustRotation(-45);
                     canvas.repaint();
-                    if (triangleObject.getRotation() > -45 && triangleObject.getRotation() < 45) {
+                    if (triangleObject.getRotation() > -1 && triangleObject.getRotation() < 45) {
                         Circle temp = (Circle) canvas.getDrawings().get(3);
                         temp.setColor(Color.WHITE);
                         canvas.repaint();
+                        second = true;
                         for (int i = 5; i < 11; i++) {
                             NinjaStar temp1 = (NinjaStar) canvas.getDrawings().get(i);
                             temp1.setColor(Color.GRAY);
                             canvas.repaint();
                         }
+                    } else if (triangleObject.getRotation() < -1) {
+                        third = true;
+                        for (int i = 5; i < 11; i++) {
+                            NinjaStar temp1 = (NinjaStar) canvas.getDrawings().get(i);
+                            temp1.setColor(Color.WHITE);
+                            canvas.repaint();
+                        }
+                        Sharingan temp2 = (Sharingan) canvas.getDrawings().get(11);
+                        temp2.setColor(Color.BLACK);
+                        Circle temp3 = (Circle) canvas.getDrawings().get(3);
+                        temp3.setColor(Color.BLACK);
                     }
                 }
 
@@ -107,11 +138,22 @@ public class SceneFrame {
                         Circle temp = (Circle) canvas.getDrawings().get(3);
                         temp.setColor(Color.RED);
                         canvas.repaint();
+                        second = false;
                         for (int i = 5; i < 11; i++) {
                             NinjaStar temp1 = (NinjaStar) canvas.getDrawings().get(i);
                             temp1.setColor(Color.WHITE);
                             canvas.repaint();
                         }
+                    } else if (triangleObject.getRotation() == 0) {
+                        third = false;
+                        for (int i = 5; i < 11; i++) {
+                            NinjaStar temp1 = (NinjaStar) canvas.getDrawings().get(i);
+                            temp1.setColor(Color.GRAY);
+                            canvas.repaint();
+                        }
+                        Sharingan temp2 = (Sharingan) canvas.getDrawings().get(11);
+                        temp2.setColor(Color.WHITE);
+                        canvas.repaint();
                     }
                 }
             }
