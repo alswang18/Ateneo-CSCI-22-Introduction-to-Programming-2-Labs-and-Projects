@@ -1,17 +1,36 @@
+/**
+ * Description (in your own words) of the class goes here. 
+ * This is the composite class that contains various Circle class, one Oval class, and one Rectangle class, to draw the Uchiha class logo. This class contains just the basic functions that make it eligible as a DrawingObject.
+ * @author Alec Wang
+ * @version Aoril 1 2020
+ */
+
+/*
+I have not discussed the Java language code 
+in my program with anyone other than my instructor 
+or the teaching assistants assigned to this course.
+
+I have not used Java language code obtained 
+from another student, or any other unauthorized 
+source, either modified or unmodified.
+
+If any Java language code or documentation 
+used in my program was obtained from another source, 
+such as a text book or webpage, those have been 
+clearly noted with a proper citation in the comments 
+of my code.
+*/
 import java.awt.*;
-import java.awt.geom.*;
 
 public class Uchiha implements DrawingObject {
     private double X;
     private double Y;
-    private int degrees;
     private Color color;
 
     public Uchiha(double x, double y, Color color) {
         this.X = x;
         this.Y = y;
         this.color = color;
-        degrees = 45;
 
     }
 
@@ -41,11 +60,4 @@ public class Uchiha implements DrawingObject {
         return X;
     }
 
-    public void adjustRotation(int d) {
-        degrees += d;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
 }

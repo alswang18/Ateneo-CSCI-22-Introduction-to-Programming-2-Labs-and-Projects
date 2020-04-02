@@ -1,6 +1,6 @@
 /**
  * Description (in your own words) of the class goes here. 
- * This is a class wrapper for the java.awt.geom.Ellipse2D class. This is a basic class that draws a circle using the Ellipse2D class and adds functionality stated within the DrawingObjects.java interface file.
+ * This is class draws the second half of the Kanji for three pieces, the Ge character. This is a composite Shape that combines my Square class with several instances of my line class. 
  *
  * @author Alec Wang
  * @version Aoril 1 2020
@@ -22,26 +22,26 @@ clearly noted with a proper citation in the comments
 of my code.
 */
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
 
-public class Circle implements DrawingObject {
-    private double X;
-    private double Y;
-    private int size;
+public class Ge implements DrawingObject {
+    private int X;
     private Color color;
 
-    public Circle(double x, double y, int size, Color color) {
+    public Ge(int x, Color color) {
         this.X = x;
-        this.Y = y;
-        this.size = size;
         this.color = color;
     }
 
     @Override
     public void draw(Graphics2D g2d) {
-        g2d.setColor(color);
-        g2d.fill(new Ellipse2D.Double(X, Y, size, size));
-
+        Square s1 = new Square(570, 630, 200, Color.GREEN);
+        s1.draw(g2d);
+        Line l1 = new Line(580, 685, 670, 635, 4, color);
+        Line l2 = new Line(760, 685, 670, 635, 4, color);
+        Line l3 = new Line(670, 755, 670, 645, 4, color);
+        l1.draw(g2d);
+        l2.draw(g2d);
+        l3.draw(g2d);
     }
 
     @Override
@@ -54,7 +54,4 @@ public class Circle implements DrawingObject {
         return X;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
 }

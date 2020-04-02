@@ -1,3 +1,26 @@
+/**
+ * Description (in your own words) of the class goes here. 
+ * This is the SceneCanvas class where all the visual elements are instantiated and put into an ArrayList to be managed by a for Loop whenever the repaint method is called by the SceneFrame.
+ *
+ * @author Alec Wang
+ * @version Aoril 1 2020
+ */
+
+/*
+I have not discussed the Java language code 
+in my program with anyone other than my instructor 
+or the teaching assistants assigned to this course.
+
+I have not used Java language code obtained 
+from another student, or any other unauthorized 
+source, either modified or unmodified.
+
+If any Java language code or documentation 
+used in my program was obtained from another source, 
+such as a text book or webpage, those have been 
+clearly noted with a proper citation in the comments 
+of my code.
+*/
 import java.awt.*;
 import javax.swing.*;
 import java.awt.geom.Rectangle2D;
@@ -27,9 +50,8 @@ public class SceneCanvas extends JComponent {
         drawings.add(new Uchiha(-300, 0, Color.RED));
         drawings.add(new Uchiha(300, 0, Color.RED));
         drawings.add(new Line(112, 600, 912, 600, 6, Color.WHITE));
-        drawings.add(new Line(180, 650, 380, 650, 1, Color.LIGHT_GRAY));
-        drawings.add(new Line(200, 700, 360, 700, 1, Color.LIGHT_GRAY));
-        drawings.add(new Line(160, 750, 400, 750, 1, Color.LIGHT_GRAY));
+        drawings.add(new San(0, Color.WHITE));
+        drawings.add(new Ge(0, Color.WHITE));
         drawings.add(new Circle(790, 664, 20, Color.LIGHT_GRAY));
         drawings.add(new Circle(815, 644, 20, Color.LIGHT_GRAY));
         drawings.add(new Circle(840, 664, 20, Color.LIGHT_GRAY));
